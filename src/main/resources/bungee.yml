@@ -1,0 +1,5 @@
+name: EGlowAddon-Proxy
+version: '${version}'
+main: me.eplugins.eglowaddon.EGlowAddon
+description: A plugin to communicate with eGlow on the backend server for proper glow colors using TAB on proxy.
+depends: [TAB]

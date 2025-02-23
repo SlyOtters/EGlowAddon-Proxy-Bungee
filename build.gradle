@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '8.0.1'
+}
+
+group = 'me.eplugins'
+version = '5.0'
+
+repositories {
+    mavenCentral()
+    //TAB
+    maven { url = 'https://repo.kryptonmc.org/releases' }
+    maven { url = 'https://oss.sonatype.org/content/groups/public/' }
+}
+
+dependencies {
+    compileOnly('net.md-5:bungeecord-api:1.20-R0.3-SNAPSHOT')
+    //compileOnly('me.neznamy:tab-api:4.0.0')
+    compileOnly fileTree(dir: '/lib/')
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    expand props
+    filteringCharset 'UTF-8'
+    filesMatching('bungee.yml') {
+        expand props
+    }
+}
